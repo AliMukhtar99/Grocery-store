@@ -22,7 +22,7 @@ function Home({ groceries, onUpdate, onDelete, logoutUser }) {
   return (
     <React.Fragment>
       <div className="nav">
-        <h1>Yum Market</h1>
+        <h1>Yum Market!</h1>
         <div className="nav-bar">
           <NavLink to="/new">Upload new Grocery</NavLink>
           <NavLink to="/">My Products</NavLink>

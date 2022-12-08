@@ -1,315 +1,105 @@
-  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to CreateUsers (20221012194908)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "category" varchar, "phone" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221012194908"]]
-  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221012194908"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
 Migrating to CreateProducts (20221013143502)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "price" integer, "description" varchar, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221013143502"]]
-  [1m[36mTRANSACTION (13.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-08 06:31:27.413561"], ["updated_at", "2022-12-08 06:31:27.413561"]]
-  [1m[36mTRANSACTION (11.0ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/me" for 127.0.0.1 at 2022-12-08 09:39:28 +0300
-Started GET "/products" for 127.0.0.1 at 2022-12-08 09:39:28 +0300
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by UsersController#show as */*
-Processing by ProductsController#index as */*
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:16:in `show'
-  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
-  ↳ app/controllers/products_controller.rb:4:in `index'
-[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.38ms)
-Completed 401 Unauthorized in 118ms (Views: 17.0ms | ActiveRecord: 1.4ms | Allocations: 18727)
-
-
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
-Completed 200 OK in 131ms (Views: 41.5ms | ActiveRecord: 1.5ms | Allocations: 20061)
-
-
-Started POST "/users/" for 127.0.0.1 at 2022-12-08 09:46:19 +0300
-Processing by UsersController#create as */*
-  Parameters: {"name"=>"ali", "email"=>"ali@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"0705939483", "category"=>"seller", "user"=>{"name"=>"ali", "email"=>"ali@gmail.com", "category"=>"seller", "phone"=>"0705939483"}}
-[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f0b5c00a7d0>, params: {"name"=>"ali", "email"=>"ali@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"0705939483", "category"=>"seller", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"ali", "email"=>"ali@gmail.com", "category"=>"seller", "phone"=>"0705939483"}} }[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221013143502"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "category", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ali"], ["email", "ali@gmail.com"], ["password_digest", "[FILTERED]"], ["category", "seller"], ["phone", 705939483], ["created_at", "2022-12-08 06:46:20.282184"], ["updated_at", "2022-12-08 06:46:20.282184"]]
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/users_controller.rb:10:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.37ms)
-Completed 201 Created in 903ms (Views: 8.9ms | ActiveRecord: 14.1ms | Allocations: 21399)
-
-
-Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 09:46:46 +0300
-Processing by SessionsController#destroy as */*
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:16:in `destroy'
-Completed 204 No Content in 8ms (ActiveRecord: 0.7ms | Allocations: 773)
-
-
-Started POST "/users/" for 127.0.0.1 at 2022-12-08 09:47:40 +0300
-Processing by UsersController#create as */*
-  Parameters: {"name"=>"ali12", "email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"45657578", "category"=>"buyer", "user"=>{"name"=>"ali12", "email"=>"dmdnv@gmail.com", "category"=>"buyer", "phone"=>"45657578"}}
-[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f0b488b8940>, params: {"name"=>"ali12", "email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"45657578", "category"=>"buyer", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"ali12", "email"=>"dmdnv@gmail.com", "category"=>"buyer", "phone"=>"45657578"}} }[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-08 09:58:13.840063"], ["updated_at", "2022-12-08 09:58:13.840063"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dmdnv@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "category", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ali12"], ["email", "dmdnv@gmail.com"], ["password_digest", "[FILTERED]"], ["category", "buyer"], ["phone", 45657578], ["created_at", "2022-12-08 06:47:41.558136"], ["updated_at", "2022-12-08 06:47:41.558136"]]
-  ↳ app/controllers/users_controller.rb:10:in `create'
-  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/users_controller.rb:10:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
-Completed 201 Created in 765ms (Views: 1.5ms | ActiveRecord: 6.3ms | Allocations: 3013)
-
-
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Red Cabbage"], ["user_id", 1], ["price", 45], ["description", "Fresh Out of Farm "], ["image", "https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"], ["created_at", "2022-12-08 09:58:24.598714"], ["updated_at", "2022-12-08 09:58:24.598714"]]
+  [1m[36mTRANSACTION (16.9ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Red Cabbage"], ["user_id", 1], ["price", 45], ["description", "Fresh Out of Farm "], ["image", "https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"], ["created_at", "2022-12-08 06:48:51.865257"], ["updated_at", "2022-12-08 06:48:51.865257"]]
-  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Onions"], ["user_id", 1], ["price", 25], ["description", "white in color "], ["image", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/onion-health-benefits-1611265687.jpg?crop=0.665xw:1.00xh;0.209xw,0&resize=640:*"], ["created_at", "2022-12-08 06:48:51.876206"], ["updated_at", "2022-12-08 06:48:51.876206"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Onions"], ["user_id", 1], ["price", 25], ["description", "white in color "], ["image", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/onion-health-benefits-1611265687.jpg?crop=0.665xw:1.00xh;0.209xw,0&resize=640:*"], ["created_at", "2022-12-08 09:58:24.626826"], ["updated_at", "2022-12-08 09:58:24.626826"]]
   [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Brocolli"], ["user_id", 2], ["price", 215], ["description", "Fresh and sweet"], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IeaVZGdp-IITINQof_6BjxSnsBbOzhVqiJQI0n2BJ5GjpxWLUViIALD98pTYBycu0Tw&usqp=CAU"], ["created_at", "2022-12-08 06:48:51.885928"], ["updated_at", "2022-12-08 06:48:51.885928"]]
-  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Carrots"], ["user_id", 2], ["price", 66], ["description", "lower pressure"], ["image", "http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-set-of-15-vegetable-seeds-to-sow-in-october-in-south-india.jpg?v=1637053297"], ["created_at", "2022-12-08 06:48:51.895635"], ["updated_at", "2022-12-08 06:48:51.895635"]]
-  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Wild Berries"], ["user_id", 2], ["price", 334], ["description", "Rich in vitamins "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-lWU_W-YHQBexcyGNOfjNmuguqH_5ZhnH7vyQEDnF7iFP6pQ6Cz3G8qvYcN3sbq8BLQ&usqp=CAU"], ["created_at", "2022-12-08 06:48:51.905368"], ["updated_at", "2022-12-08 06:48:51.905368"]]
-  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mangoes"], ["user_id", 2], ["price", 115], ["description", "Ripe and juicy "], ["image", "https://i.pinimg.com/736x/71/4d/fe/714dfeb14adfa568fcf7e6be682383a4--mango-tree-sanjeev-kapoor.jpg"], ["created_at", "2022-12-08 06:48:51.918898"], ["updated_at", "2022-12-08 06:48:51.918898"]]
-  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Curly Kales"], ["user_id", 1], ["price", 99], ["description", "Healthy and nutrious "], ["image", "https://www.theecologycenter.org/wp-content/uploads/2021/03/kale-1024x1024.jpg"], ["created_at", "2022-12-08 06:48:51.928772"], ["updated_at", "2022-12-08 06:48:51.928772"]]
-  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cucumber"], ["user_id", 1], ["price", 65], ["description", "Long and juicy "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsch935M1NGP2djC8FTQJy1sCDxnH7IMRfpAh4xWPyKl7Kdb3ZMzX_sbEr89WK-Xncz3U&usqp=CAU"], ["created_at", "2022-12-08 06:48:51.938459"], ["updated_at", "2022-12-08 06:48:51.938459"]]
-  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cabbage"], ["user_id", 3], ["price", 44], ["description", "Fresh and green"], ["image", "https://www.almanac.com/sites/default/files/styles/large/public/image_nodes/cabbage_st-design_gettyimages.jpg?itok=8AzBHNDN"], ["created_at", "2022-12-08 06:48:51.948170"], ["updated_at", "2022-12-08 06:48:51.948170"]]
-  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "EggPlant"], ["user_id", 10], ["price", 105], ["description", "Fresh and purple "], ["image", "https://media.istockphoto.com/photos/eggplant-isolated-on-white-picture-id510515443?k=20&m=510515443&s=612x612&w=0&h=VZfZR8XRcGJzOcpcB1jF4teU-flgqcXdwYsmfM7OzDI="], ["created_at", "2022-12-08 06:48:51.958037"], ["updated_at", "2022-12-08 06:48:51.958037"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Brocolli"], ["user_id", 2], ["price", 215], ["description", "Fresh and sweet"], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IeaVZGdp-IITINQof_6BjxSnsBbOzhVqiJQI0n2BJ5GjpxWLUViIALD98pTYBycu0Tw&usqp=CAU"], ["created_at", "2022-12-08 09:58:24.668427"], ["updated_at", "2022-12-08 09:58:24.668427"]]
   [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "French Beans"], ["user_id", 1], ["price", 65], ["description", "Non organic"], ["image", "https://5.imimg.com/data5/HU/VL/MY-6117714/fresh-french-beans-500x500.jpg"], ["created_at", "2022-12-08 06:48:51.968254"], ["updated_at", "2022-12-08 06:48:51.968254"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Carrots"], ["user_id", 2], ["price", 66], ["description", "lower pressure"], ["image", "http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-set-of-15-vegetable-seeds-to-sow-in-october-in-south-india.jpg?v=1637053297"], ["created_at", "2022-12-08 09:58:24.677282"], ["updated_at", "2022-12-08 09:58:24.677282"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Wild Berries"], ["user_id", 2], ["price", 334], ["description", "Rich in vitamins "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-lWU_W-YHQBexcyGNOfjNmuguqH_5ZhnH7vyQEDnF7iFP6pQ6Cz3G8qvYcN3sbq8BLQ&usqp=CAU"], ["created_at", "2022-12-08 09:58:24.686867"], ["updated_at", "2022-12-08 09:58:24.686867"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mangoes"], ["user_id", 2], ["price", 115], ["description", "Ripe and juicy "], ["image", "https://i.pinimg.com/736x/71/4d/fe/714dfeb14adfa568fcf7e6be682383a4--mango-tree-sanjeev-kapoor.jpg"], ["created_at", "2022-12-08 09:58:24.695593"], ["updated_at", "2022-12-08 09:58:24.695593"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Curly Kales"], ["user_id", 1], ["price", 99], ["description", "Healthy and nutrious "], ["image", "https://www.theecologycenter.org/wp-content/uploads/2021/03/kale-1024x1024.jpg"], ["created_at", "2022-12-08 09:58:24.703939"], ["updated_at", "2022-12-08 09:58:24.703939"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cucumber"], ["user_id", 1], ["price", 65], ["description", "Long and juicy "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsch935M1NGP2djC8FTQJy1sCDxnH7IMRfpAh4xWPyKl7Kdb3ZMzX_sbEr89WK-Xncz3U&usqp=CAU"], ["created_at", "2022-12-08 09:58:24.712628"], ["updated_at", "2022-12-08 09:58:24.712628"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cabbage"], ["user_id", 3], ["price", 44], ["description", "Fresh and green"], ["image", "https://www.almanac.com/sites/default/files/styles/large/public/image_nodes/cabbage_st-design_gettyimages.jpg?itok=8AzBHNDN"], ["created_at", "2022-12-08 09:58:24.721341"], ["updated_at", "2022-12-08 09:58:24.721341"]]
   [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tomatoes"], ["user_id", 2], ["price", 55], ["description", "Ready for harvest"], ["image", "https://eqhct8esjgc.exactdn.com/wp-content/uploads/2015/06/tomatoes-on-vine-sq.jpg?strip=all&lossy=1&ssl=1"], ["created_at", "2022-12-08 06:48:51.979290"], ["updated_at", "2022-12-08 06:48:51.979290"]]
-  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
-Started POST "/login" for 127.0.0.1 at 2022-12-08 09:49:42 +0300
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by SessionsController#create as */*
-  Parameters: {"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dmdnv@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.87ms)
-Completed 200 OK in 803ms (Views: 9.1ms | ActiveRecord: 2.6ms | Allocations: 35078)
-
-
-Started GET "/me" for 127.0.0.1 at 2022-12-08 09:49:59 +0300
-Started GET "/products" for 127.0.0.1 at 2022-12-08 09:49:59 +0300
-Processing by UsersController#show as */*
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-Processing by ProductsController#index as */*
-  ↳ app/controllers/users_controller.rb:16:in `show'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
-Completed 200 OK in 36ms (Views: 5.9ms | ActiveRecord: 0.8ms | Allocations: 1651)
-
-
-  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
-  ↳ app/controllers/products_controller.rb:4:in `index'
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.67ms)
-Completed 200 OK in 144ms (Views: 129.8ms | ActiveRecord: 6.5ms | Allocations: 18300)
-
-
-Started GET "/products" for 127.0.0.1 at 2022-12-08 09:50:11 +0300
-Started GET "/me" for 127.0.0.1 at 2022-12-08 09:50:11 +0300
-Processing by ProductsController#index as */*
-  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
-  ↳ app/controllers/products_controller.rb:4:in `index'
-Processing by UsersController#show as */*
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:16:in `show'
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.17ms)
-Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.0ms | Allocations: 3552)
-
-
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.03ms)
-Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 1107)
-
-
-Started GET "/products" for 127.0.0.1 at 2022-12-08 09:50:37 +0300
-Started GET "/me" for 127.0.0.1 at 2022-12-08 09:50:37 +0300
-Processing by ProductsController#index as */*
-  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
-  ↳ app/controllers/products_controller.rb:4:in `index'
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.48ms)
-Processing by UsersController#show as */*
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:16:in `show'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.62ms)
-Completed 200 OK in 15ms (Views: 4.5ms | ActiveRecord: 1.0ms | Allocations: 886)
-
-
-Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 1.2ms | Allocations: 2696)
-
-
-Started POST "/login" for 127.0.0.1 at 2022-12-08 09:51:14 +0300
-Processing by SessionsController#create as */*
-  Parameters: {"email"=>"ali@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"ali@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
-Completed 200 OK in 755ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 871)
-
-
-Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 09:51:33 +0300
-Processing by SessionsController#destroy as */*
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:16:in `destroy'
-Completed 204 No Content in 7ms (ActiveRecord: 0.4ms | Allocations: 599)
-
-
-Started POST "/login" for 127.0.0.1 at 2022-12-08 09:51:53 +0300
-Processing by SessionsController#create as */*
-  Parameters: {"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dmdnv@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.68ms)
-Completed 200 OK in 720ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 871)
-
-
-Started GET "/products" for 127.0.0.1 at 2022-12-08 09:53:07 +0300
-Processing by ProductsController#index as */*
-  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
-  ↳ app/controllers/products_controller.rb:4:in `index'
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.3ms)
-Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.5ms | Allocations: 2612)
-
-
-Started GET "/me" for 127.0.0.1 at 2022-12-08 09:53:07 +0300
-Processing by UsersController#show as */*
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:16:in `show'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
-Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 837)
-
-
-Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 09:55:09 +0300
-Processing by SessionsController#destroy as */*
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:16:in `destroy'
-Completed 204 No Content in 10ms (ActiveRecord: 0.4ms | Allocations: 588)
-
-
-Started POST "/login" for 127.0.0.1 at 2022-12-08 09:59:24 +0300
-Processing by SessionsController#create as */*
-  Parameters: {"email"=>"ali@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"ali@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.68ms)
-Completed 200 OK in 763ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 868)
-
-
-Started DELETE "/products/8" for 127.0.0.1 at 2022-12-08 09:59:46 +0300
-Processing by ProductsController#destroy as */*
-  Parameters: {"id"=>"8"}
-  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
-  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "EggPlant"], ["user_id", 10], ["price", 105], ["description", "Fresh and purple "], ["image", "https://media.istockphoto.com/photos/eggplant-isolated-on-white-picture-id510515443?k=20&m=510515443&s=612x612&w=0&h=VZfZR8XRcGJzOcpcB1jF4teU-flgqcXdwYsmfM7OzDI="], ["created_at", "2022-12-08 09:58:24.730312"], ["updated_at", "2022-12-08 09:58:24.730312"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/products_controller.rb:19:in `destroy'
-  [1m[36mProduct Destroy (0.7ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 8]]
-  ↳ app/controllers/products_controller.rb:19:in `destroy'
-  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/products_controller.rb:19:in `destroy'
-Completed 204 No Content in 17ms (ActiveRecord: 6.4ms | Allocations: 1926)
-
-
-Started DELETE "/products/8" for 127.0.0.1 at 2022-12-08 09:59:47 +0300
-Processing by ProductsController#destroy as */*
-  Parameters: {"id"=>"8"}
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
-  ↳ app/controllers/products_controller.rb:19:in `destroy'
-[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
-Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.3ms | Allocations: 1703)
-
-
-Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 10:00:09 +0300
-Processing by SessionsController#destroy as */*
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:16:in `destroy'
-Completed 204 No Content in 7ms (ActiveRecord: 0.8ms | Allocations: 592)
-
-
-Started POST "/login" for 127.0.0.1 at 2022-12-08 10:00:20 +0300
-Processing by SessionsController#create as */*
-  Parameters: {"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dmdnv@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dmdnv@gmail.com"], ["LIMIT", 1]]
-  ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.84ms)
-Completed 200 OK in 875ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 874)
-
-
-Started GET "/me" for 127.0.0.1 at 2022-12-08 11:55:16 +0300
-Started GET "/products" for 127.0.0.1 at 2022-12-08 11:55:16 +0300
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "French Beans"], ["user_id", 1], ["price", 65], ["description", "Non organic"], ["image", "https://5.imimg.com/data5/HU/VL/MY-6117714/fresh-french-beans-500x500.jpg"], ["created_at", "2022-12-08 09:58:24.739256"], ["updated_at", "2022-12-08 09:58:24.739256"]]
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tomatoes"], ["user_id", 2], ["price", 55], ["description", "Ready for harvest"], ["image", "https://eqhct8esjgc.exactdn.com/wp-content/uploads/2015/06/tomatoes-on-vine-sq.jpg?strip=all&lossy=1&ssl=1"], ["created_at", "2022-12-08 09:58:24.756403"], ["updated_at", "2022-12-08 09:58:24.756403"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:04:14 +0300
+Started GET "/products" for 127.0.0.1 at 2022-12-08 13:04:14 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
 Processing by ProductsController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `show'
   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
   ↳ app/controllers/products_controller.rb:4:in `index'
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.23ms)
-Processing by UsersController#show as */*
-Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 2.1ms | Allocations: 2407)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 401 Unauthorized in 120ms (Views: 17.5ms | ActiveRecord: 1.8ms | Allocations: 19231)
 
 
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-  ↳ app/controllers/users_controller.rb:16:in `show'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.24ms)
-Completed 200 OK in 13ms (Views: 2.8ms | ActiveRecord: 1.7ms | Allocations: 1188)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.58ms)
+Completed 200 OK in 205ms (Views: 149.4ms | ActiveRecord: 4.9ms | Allocations: 38831)
 
 
-Started POST "/login" for 127.0.0.1 at 2022-12-08 11:55:25 +0300
+Started POST "/login" for 127.0.0.1 at 2022-12-08 13:12:29 +0300
 Processing by SessionsController#create as */*
   Parameters: {"email"=>"ali@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"ali@gmail.com", "password"=>"[FILTERED]"}}
-  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
   ↳ app/controllers/sessions_controller.rb:4:in `create'
-[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.92ms)
-Completed 200 OK in 820ms (Views: 2.3ms | ActiveRecord: 1.5ms | Allocations: 912)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 401 Unauthorized in 33ms (Views: 2.0ms | ActiveRecord: 14.6ms | Allocations: 886)
 
 
-Started POST "/products" for 127.0.0.1 at 2022-12-08 11:56:47 +0300
-Processing by ProductsController#create as */*
-  Parameters: {"name"=>"orange", "price"=>"60", "description"=>"fresh off the farm", "image"=>"https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg", "user_id"=>1, "product"=>{"name"=>"orange", "user_id"=>1, "price"=>"60", "description"=>"fresh off the farm", "image"=>"https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg"}}
-[31mUnpermitted parameter: :product. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x000056226d440af8>, params: {"name"=>"orange", "price"=>"60", "description"=>"fresh off the farm", "image"=>"https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg", "user_id"=>1, "controller"=>"products", "action"=>"create", "product"=>{"name"=>"orange", "user_id"=>1, "price"=>"60", "description"=>"fresh off the farm", "image"=>"https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg"}} }[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-08 13:13:03 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"ali", "email"=>"ali@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"877485684", "category"=>"seller", "user"=>{"name"=>"ali", "email"=>"ali@gmail.com", "category"=>"seller", "phone"=>"877485684"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000055b45d58d060>, params: {"name"=>"ali", "email"=>"ali@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"877485684", "category"=>"seller", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"ali", "email"=>"ali@gmail.com", "category"=>"seller", "phone"=>"877485684"}} }[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  ↳ app/controllers/products_controller.rb:8:in `create'
-  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "orange"], ["user_id", 1], ["price", 60], ["description", "fresh off the farm"], ["image", "https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg"], ["created_at", "2022-12-08 08:56:47.796501"], ["updated_at", "2022-12-08 08:56:47.796501"]]
-  ↳ app/controllers/products_controller.rb:8:in `create'
-  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
-  ↳ app/controllers/products_controller.rb:8:in `create'
-[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
-Completed 201 Created in 17ms (Views: 1.8ms | ActiveRecord: 4.5ms | Allocations: 2203)
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "category", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ali"], ["email", "ali@gmail.com"], ["password_digest", "[FILTERED]"], ["category", "seller"], ["phone", 877485684], ["created_at", "2022-12-08 10:13:04.240472"], ["updated_at", "2022-12-08 10:13:04.240472"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.72ms)
+Completed 201 Created in 837ms (Views: 16.9ms | ActiveRecord: 7.9ms | Allocations: 19126)
 
 
-Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 11:57:04 +0300
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 13:16:13 +0300
 Processing by SessionsController#destroy as */*
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/controllers/sessions_controller.rb:16:in `destroy'
-Completed 204 No Content in 6ms (ActiveRecord: 0.5ms | Allocations: 625)
+Completed 204 No Content in 9ms (ActiveRecord: 1.1ms | Allocations: 736)
 
 
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

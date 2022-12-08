@@ -19,7 +19,7 @@ export default function BuyerHomeDashBoard({ groceries, logoutUser }) {
   return (
     <React.Fragment>
       <div className="nav">
-        <h1>Yum Market</h1>
+        <h1>Yum Market!</h1>
         <div className="nav-bar">
           <NavLink to="/dashboard">All Products</NavLink>
           <NavLink onClick={logoutUser}>Sign Out</NavLink>

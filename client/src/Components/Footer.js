@@ -24,8 +24,8 @@ function Footer() {
       <div>
         <h2>Locate us</h2>
         <p>
-          Maendeleo Plaza, 2nd Floor <br />
-          Tom Mboya street.
+          Karen Hub, 2nd Floor <br />
+          Kimathi Lane .
         </p>
       </div>
     </section>
