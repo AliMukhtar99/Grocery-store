@@ -160,3 +160,208 @@ Completed 401 Unauthorized in 114ms (Views: 20.6ms | ActiveRecord: 1.5ms | Alloc
 Completed 200 OK in 176ms (Views: 133.4ms | ActiveRecord: 4.5ms | Allocations: 38227)
 
 
+Started POST "/users/" for 127.0.0.1 at 2022-12-08 15:03:11 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"sukyan", "email"=>"sukyan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"346874355", "category"=>"buyer", "user"=>{"name"=>"sukyan", "email"=>"sukyan@gmail.com", "category"=>"buyer", "phone"=>"346874355"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f8c04d2bd00>, params: {"name"=>"sukyan", "email"=>"sukyan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"346874355", "category"=>"buyer", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"sukyan", "email"=>"sukyan@gmail.com", "category"=>"buyer", "phone"=>"346874355"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sukyan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "category", "phone", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "sukyan"], ["email", "sukyan@gmail.com"], ["password_digest", "[FILTERED]"], ["category", "buyer"], ["phone", 346874355], ["created_at", "2022-12-08 12:03:12.234277"], ["updated_at", "2022-12-08 12:03:12.234277"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.86ms)
+Completed 201 Created in 644ms (Views: 12.9ms | ActiveRecord: 9.1ms | Allocations: 18703)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-12-08 15:04:21 +0300
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:16:in `destroy'
+Completed 204 No Content in 13ms (ActiveRecord: 1.6ms | Allocations: 764)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-08 15:04:25 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"ali@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"ali@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ali@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 848ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1009)
+
+
+Started DELETE "/products/19" for 127.0.0.1 at 2022-12-08 15:04:37 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Destroy (10.3ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+Completed 204 No Content in 24ms (ActiveRecord: 14.8ms | Allocations: 1900)
+
+
+Started DELETE "/products/19" for 127.0.0.1 at 2022-12-08 15:04:38 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 613)
+
+
+Started DELETE "/products/20" for 127.0.0.1 at 2022-12-08 15:04:39 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Destroy (0.7ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+Completed 204 No Content in 13ms (ActiveRecord: 5.2ms | Allocations: 1741)
+
+
+Started DELETE "/products/20" for 127.0.0.1 at 2022-12-08 15:04:39 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 593)
+
+
+Started DELETE "/products/23" for 127.0.0.1 at 2022-12-08 15:04:39 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Destroy (0.9ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+Completed 204 No Content in 16ms (ActiveRecord: 5.7ms | Allocations: 1742)
+
+
+Started DELETE "/products/23" for 127.0.0.1 at 2022-12-08 15:04:40 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 591)
+
+
+Started DELETE "/products/14" for 127.0.0.1 at 2022-12-08 15:04:42 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Destroy (0.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+Completed 204 No Content in 19ms (ActiveRecord: 9.0ms | Allocations: 1743)
+
+
+Started DELETE "/products/14" for 127.0.0.1 at 2022-12-08 15:04:43 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 591)
+
+
+Started PATCH "/products/13" for 127.0.0.1 at 2022-12-08 15:05:08 +0300
+Processing by ProductsController#update as */*
+  Parameters: {"name"=>"Red Cabbage", "price"=>"60", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397", "id"=>"13", "product"=>{"name"=>"Red Cabbage", "price"=>"60", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `update'
+[31mUnpermitted parameters: :id, :product. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x00007f8c048120f8>, params: {"name"=>"Red Cabbage", "price"=>"60", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397", "controller"=>"products", "action"=>"update", "id"=>"13", "product"=>{"name"=>"Red Cabbage", "price"=>"60", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:14:in `update'
+  [1m[36mProduct Update (0.6ms)[0m  [1m[33mUPDATE "products" SET "price" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["price", 60], ["updated_at", "2022-12-08 12:05:08.618395"], ["id", 13]]
+  ↳ app/controllers/products_controller.rb:14:in `update'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:14:in `update'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 22ms (Views: 2.4ms | ActiveRecord: 7.1ms | Allocations: 2532)
+
+
+Started DELETE "/products/13" for 127.0.0.1 at 2022-12-08 15:05:36 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mProduct Destroy (0.5ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+Completed 204 No Content in 22ms (ActiveRecord: 13.8ms | Allocations: 1741)
+
+
+Started DELETE "/products/13" for 127.0.0.1 at 2022-12-08 15:05:37 +0300
+Processing by ProductsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 591)
+
+
+Started PATCH "/products/1" for 127.0.0.1 at 2022-12-08 15:05:56 +0300
+Processing by ProductsController#update as */*
+  Parameters: {"name"=>"Red Cabbage", "price"=>"90", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397", "id"=>"1", "product"=>{"name"=>"Red Cabbage", "price"=>"90", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"}}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `update'
+[31mUnpermitted parameters: :id, :product. Context: { controller: ProductsController, action: update, request: #<ActionDispatch::Request:0x00007f8bf80d47c0>, params: {"name"=>"Red Cabbage", "price"=>"90", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397", "controller"=>"products", "action"=>"update", "id"=>"1", "product"=>{"name"=>"Red Cabbage", "price"=>"90", "description"=>"Fresh Out of Farm ", "image"=>"https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:14:in `update'
+  [1m[36mProduct Update (0.5ms)[0m  [1m[33mUPDATE "products" SET "price" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["price", 90], ["updated_at", "2022-12-08 12:05:56.593081"], ["id", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `update'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:14:in `update'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 17ms (Views: 1.8ms | ActiveRecord: 4.5ms | Allocations: 2473)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-12-08 15:08:05 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"brocoli", "price"=>"50", "description"=>"fresh brocoli", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSt0OreseWwbXrdq21madXf5ZlrVN14R7pg&usqp=CAU", "user_id"=>1, "product"=>{"name"=>"brocoli", "user_id"=>1, "price"=>"50", "description"=>"fresh brocoli", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSt0OreseWwbXrdq21madXf5ZlrVN14R7pg&usqp=CAU"}}
+[31mUnpermitted parameter: :product. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x00007f8bf801d188>, params: {"name"=>"brocoli", "price"=>"50", "description"=>"fresh brocoli", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSt0OreseWwbXrdq21madXf5ZlrVN14R7pg&usqp=CAU", "user_id"=>1, "controller"=>"products", "action"=>"create", "product"=>{"name"=>"brocoli", "user_id"=>1, "price"=>"50", "description"=>"fresh brocoli", "image"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSt0OreseWwbXrdq21madXf5ZlrVN14R7pg&usqp=CAU"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:8:in `create'
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "brocoli"], ["user_id", 1], ["price", 50], ["description", "fresh brocoli"], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSt0OreseWwbXrdq21madXf5ZlrVN14R7pg&usqp=CAU"], ["created_at", "2022-12-08 12:08:05.277465"], ["updated_at", "2022-12-08 12:08:05.277465"]]
+  ↳ app/controllers/products_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:8:in `create'
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 201 Created in 19ms (Views: 1.9ms | ActiveRecord: 7.2ms | Allocations: 2069)
+
+
+Started GET "/PRODUCTS" for 127.0.0.1 at 2022-12-08 15:39:53 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/PRODUCTS"):
+  
+Started GET "/products" for 127.0.0.1 at 2022-12-08 15:40:07 +0300
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.34ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 1.8ms | Allocations: 3637)
+
+

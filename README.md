@@ -1,24 +1,20 @@
-# README
+Welcome to Grocery Store, a Ruby version 2.7.4 application that allows sellers to list the items they want to sell and buyers to find groceries they want to buy.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
+-Users can choose whether to register as a buyer or a seller.
 
-* Ruby version
+- Sellers can list items they want to sell, including item name, description, price, and quantity.
+- Buyers can search for items they want to buy by name or description.
 
-* System dependencies
+## Installation
 
-* Configuration
+To install Grocery Store, clone the repository and run `bundle install` to install the necessary gems. Also, run `npm install` to install react dependencies and necessary gems.
 
-* Database creation
+## Usage
 
-* Database initialization
+To use Grocery Store, run `rails s` in the terminal and `npm start --prefix client` in another terminal. This will start the application and open a browser window with the Grocery Store homepage. From there, you can log in as a seller or buyer and start using the application.
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/[AliMukhtar99]/grocery-store. This project is intended to be a safe, welcoming space for collaboration.
