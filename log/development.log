@@ -103,3 +103,60 @@ Processing by SessionsController#destroy as */*
 Completed 204 No Content in 9ms (ActiveRecord: 1.1ms | Allocations: 736)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Red Cabbage"], ["user_id", 1], ["price", 45], ["description", "Fresh Out of Farm "], ["image", "https://static.toiimg.com/photo/msid-70464115/70464115.jpg?1700397"], ["created_at", "2022-12-08 10:23:04.264635"], ["updated_at", "2022-12-08 10:23:04.264635"]]
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Onions"], ["user_id", 1], ["price", 25], ["description", "white in color "], ["image", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/onion-health-benefits-1611265687.jpg?crop=0.665xw:1.00xh;0.209xw,0&resize=640:*"], ["created_at", "2022-12-08 10:23:04.284853"], ["updated_at", "2022-12-08 10:23:04.284853"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Brocolli"], ["user_id", 2], ["price", 215], ["description", "Fresh and sweet"], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IeaVZGdp-IITINQof_6BjxSnsBbOzhVqiJQI0n2BJ5GjpxWLUViIALD98pTYBycu0Tw&usqp=CAU"], ["created_at", "2022-12-08 10:23:04.295297"], ["updated_at", "2022-12-08 10:23:04.295297"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Carrots"], ["user_id", 2], ["price", 66], ["description", "lower pressure"], ["image", "http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-set-of-15-vegetable-seeds-to-sow-in-october-in-south-india.jpg?v=1637053297"], ["created_at", "2022-12-08 10:23:04.308329"], ["updated_at", "2022-12-08 10:23:04.308329"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Wild Berries"], ["user_id", 2], ["price", 334], ["description", "Rich in vitamins "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-lWU_W-YHQBexcyGNOfjNmuguqH_5ZhnH7vyQEDnF7iFP6pQ6Cz3G8qvYcN3sbq8BLQ&usqp=CAU"], ["created_at", "2022-12-08 10:23:04.323245"], ["updated_at", "2022-12-08 10:23:04.323245"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mangoes"], ["user_id", 2], ["price", 115], ["description", "Ripe and juicy "], ["image", "https://i.pinimg.com/736x/71/4d/fe/714dfeb14adfa568fcf7e6be682383a4--mango-tree-sanjeev-kapoor.jpg"], ["created_at", "2022-12-08 10:23:04.338167"], ["updated_at", "2022-12-08 10:23:04.338167"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Curly Kales"], ["user_id", 1], ["price", 99], ["description", "Healthy and nutrious "], ["image", "https://www.theecologycenter.org/wp-content/uploads/2021/03/kale-1024x1024.jpg"], ["created_at", "2022-12-08 10:23:04.353304"], ["updated_at", "2022-12-08 10:23:04.353304"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cucumber"], ["user_id", 1], ["price", 65], ["description", "Long and juicy "], ["image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsch935M1NGP2djC8FTQJy1sCDxnH7IMRfpAh4xWPyKl7Kdb3ZMzX_sbEr89WK-Xncz3U&usqp=CAU"], ["created_at", "2022-12-08 10:23:04.370173"], ["updated_at", "2022-12-08 10:23:04.370173"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cabbage"], ["user_id", 3], ["price", 44], ["description", "Fresh and green"], ["image", "https://www.almanac.com/sites/default/files/styles/large/public/image_nodes/cabbage_st-design_gettyimages.jpg?itok=8AzBHNDN"], ["created_at", "2022-12-08 10:23:04.384683"], ["updated_at", "2022-12-08 10:23:04.384683"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "EggPlant"], ["user_id", 10], ["price", 105], ["description", "Fresh and purple "], ["image", "https://media.istockphoto.com/photos/eggplant-isolated-on-white-picture-id510515443?k=20&m=510515443&s=612x612&w=0&h=VZfZR8XRcGJzOcpcB1jF4teU-flgqcXdwYsmfM7OzDI="], ["created_at", "2022-12-08 10:23:04.397439"], ["updated_at", "2022-12-08 10:23:04.397439"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "French Beans"], ["user_id", 1], ["price", 65], ["description", "Non organic"], ["image", "https://5.imimg.com/data5/HU/VL/MY-6117714/fresh-french-beans-500x500.jpg"], ["created_at", "2022-12-08 10:23:04.441292"], ["updated_at", "2022-12-08 10:23:04.441292"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "user_id", "price", "description", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tomatoes"], ["user_id", 2], ["price", 55], ["description", "Ready for harvest"], ["image", "https://eqhct8esjgc.exactdn.com/wp-content/uploads/2015/06/tomatoes-on-vine-sq.jpg?strip=all&lossy=1&ssl=1"], ["created_at", "2022-12-08 10:23:04.454355"], ["updated_at", "2022-12-08 10:23:04.454355"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/me" for 127.0.0.1 at 2022-12-08 13:24:10 +0300
+Started GET "/products" for 127.0.0.1 at 2022-12-08 13:24:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:4:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.45ms)
+Completed 401 Unauthorized in 114ms (Views: 20.6ms | ActiveRecord: 1.5ms | Allocations: 21458)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.92ms)
+Completed 200 OK in 176ms (Views: 133.4ms | ActiveRecord: 4.5ms | Allocations: 38227)
+
+
