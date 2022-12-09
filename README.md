@@ -18,3 +18,4 @@ To use Grocery Store, run `rails s` in the terminal and `npm start --prefix clie
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[AliMukhtar99]/grocery-store. This project is intended to be a safe, welcoming space for collaboration.
+https://moringaclassroom.slack.com/files/U03PVRFHBS7/F04EAUM34DC/img_0888.mov
